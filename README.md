@@ -17,6 +17,17 @@ docker-compose build
 docker up -d
 ```
 
+インスペクション
+```
+docker-compose exec app bash
+```
+
+composer install
+```
+cd laravel-vue-app
+composer install
+```
+
 laravel-vue-app/.envの下記の項目についてdocker-compose.ymlの設定値を記述
 ```
 APP_URL=http://localhost:8000
