@@ -11,9 +11,7 @@
 |
 */
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('/', function () {
-        return view('bbs');
-    });
+    Route::get('/','PostController@index');
     Route::post('post','PostController@create');
 
 });

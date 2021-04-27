@@ -9,6 +9,10 @@ use App\Post;
 
 class PostController extends Controller
 {
+    public function index(){
+        return view('bbs',['posts'=>Post::all()]);
+    }
+
     public function create(Request $request){
         Auth::user()->posts()->save(new Post(['body'=>$request->body]));
         // 全く同じ意味
