@@ -18,3 +18,5 @@ RUN apt-get update \
 
 #コンテナ内に入った時のディレクトリを指定
 WORKDIR /var/www/html
+
+COPY php.ini /usr/local/etc/php/ 
