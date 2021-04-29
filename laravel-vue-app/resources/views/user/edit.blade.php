@@ -41,7 +41,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <input type="hidden" name="_method" value="PUT">
+                        @method('PUT')
                         @csrf
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
