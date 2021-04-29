@@ -14,12 +14,7 @@ class PostController extends Controller
     }
 
     public function create(Request $request){
-        Auth::user()->posts()->save(new Post(['body'=>$request->body]));
-        // 全く同じ意味
-        // $post = new Post;
-        // $post->body = $request->body;
-        // $post->user_id = Auth::id();
-        // $post->save();
+        Auth::user()->posts()->save(new Post($request->only('body')));
         return redirect('/');
     }
 }
