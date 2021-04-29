@@ -10,11 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware'=>'auth'],function(){
+Route::middleware(['auth'])->group(function(){
     Route::get('/','PostController@index');
     Route::post('post','PostController@create');
-    Route::get('user/{user}/edit', 'UserController@edit')->name('user.edit');
-    Route::put('user/{user}', 'UserController@update')->name('user.update');
+
+    Route::middleware(['can:update,user'])->group(function () {
+        Route::get('user/{user}/edit', 'UserController@edit')->name('user.edit');
+        Route::put('user/{user}', 'UserController@update')->name('user.update');
+    });
 });
 
 Auth::routes();
