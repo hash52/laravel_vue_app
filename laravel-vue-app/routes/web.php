@@ -18,10 +18,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('user/{user}/edit', 'UserController@edit')->name('user.edit');
         Route::put('user/{user}', 'UserController@update')->name('user.update');
     });
-});
 
-Route::prefix('admin')->group(function () {
-    Route::get('users', 'Admin\UserController@index');
+    Route::middleware(['admin'])->prefix('admin')->group(function () {
+        Route::get('users', 'Admin\UserController@index')->name('admin.users');     
+    });
 });
 
 Auth::routes();
