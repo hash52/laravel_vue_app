@@ -20,4 +20,8 @@ Route::middleware(['auth'])->group(function(){
     });
 });
 
+Route::prefix('admin')->group(function () {
+    Route::get('users', 'Admin\UserController@index');
+});
+
 Auth::routes();
